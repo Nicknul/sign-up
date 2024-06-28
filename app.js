@@ -8,7 +8,7 @@ const server = http.createServer((req, res) => {
     if (req.url === '/') {
       const first = fs.readFileSync('./public/signUp.html', 'utf-8');
 
-      res.statusCode = 200; // 🔶
+      res.statusCode = 200;
       res.setHeader('Content-Type', 'text/html');
       res.write(first);
       res.end();
