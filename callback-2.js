@@ -1,12 +1,12 @@
 const fetchData = (callback) => {
-  setTimeout(() => {
-    console.log('Data fetched!');
-    callback();
-  }, 2000);
+  console.log('Data fetched!');
+  callback();
 };
 
 const processData = () => {
-  console.log('processing data...');
+  setTimeout(() => {
+    console.log('processing data...');
+  }, 2000);
 };
 
 fetchData(processData);
