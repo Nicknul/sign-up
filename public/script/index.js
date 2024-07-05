@@ -2,7 +2,7 @@ const root = document.querySelector('#root');
 
 // console.log(root);
 
-const names = [
+const members = [
   '구하림',
   '김보미',
   '김수현',
@@ -24,3 +24,11 @@ const names = [
   '최유진',
   '황재민',
 ];
+
+for (let name in members) {
+  // console.log(names[name]);
+}
+
+members.forEach((element) => {
+  // console.log(element);
+});
