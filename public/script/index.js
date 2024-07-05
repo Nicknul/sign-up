@@ -1,4 +1,6 @@
 const root = document.querySelector('#root');
+const form = document.querySelector('form');
+// console.log(form);
 const name = document.querySelector('#name');
 
 const members = [
