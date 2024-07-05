@@ -1,7 +1,7 @@
 const root = document.querySelector('#root');
 const form = document.querySelector('form');
-// console.log(form);
-const name = document.querySelector('#name');
+const names = document.querySelector('#name');
+console.log(names);
 
 const members = [
   '구하림',
@@ -27,7 +27,7 @@ const members = [
 ];
 
 for (let name in members) {
-  // console.log(names[name]);
+  // console.log(members[name]);
 }
 
 members.forEach((element) => {
@@ -35,4 +35,9 @@ members.forEach((element) => {
   if (name.value === element) {
     console.log('확인');
   }
+});
+
+names.addEventListener('input', () => {
+  let data = names.value;
+  console.log(data);
 });
