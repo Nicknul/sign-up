@@ -39,5 +39,10 @@ members.forEach((element) => {
 
 names.addEventListener('input', () => {
   let data = names.value;
-  console.log(data);
+  // console.log(data);
+  members.forEach((element) => {
+    if (data === element) {
+      console.log('complete');
+    }
+  });
 });
