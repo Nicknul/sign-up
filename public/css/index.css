@@ -9,12 +9,16 @@
   margin: 5vh;
 }
 
+label {
+  font-size: 11pt;
+}
+
 input {
   border: none;
-  border-radius: 1vw;
+  border-radius: 10px;
   background-color: #d9d9d9;
-  color: black;
+  color: #3d3d3d;
   cursor: pointer;
   padding: 10px;
-  width: 40vw;
+  width: 400px;
 }
