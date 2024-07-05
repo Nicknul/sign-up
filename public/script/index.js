@@ -1,6 +1,5 @@
 const root = document.querySelector('#root');
-
-// console.log(root);
+const name = document.querySelector('#name');
 
 const members = [
   '구하림',
@@ -31,4 +30,7 @@ for (let name in members) {
 
 members.forEach((element) => {
   // console.log(element);
+  if (name.value === element) {
+    console.log('확인');
+  }
 });
