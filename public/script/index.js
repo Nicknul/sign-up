@@ -1,7 +1,7 @@
 const root = document.querySelector('#root');
 const form = document.querySelector('form');
 const names = document.querySelector('#name');
-console.log(names);
+// console.log(names);
 
 const members = [
   '구하림',
@@ -26,20 +26,10 @@ const members = [
   '황재민',
 ];
 
-for (let name in members) {
-  // console.log(members[name]);
-}
-
-members.forEach((element) => {
-  // console.log(element);
-  if (name.value === element) {
-    console.log('확인');
-  }
-});
+const baoleanArr = [];
 
 names.addEventListener('input', () => {
   let data = names.value;
-  // console.log(data);
   members.forEach((element) => {
     if (data === element) {
       console.log('complete');
