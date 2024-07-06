@@ -26,13 +26,19 @@ const members = [
   '황재민',
 ];
 
-const baoleanArr = [];
+const booleanArr = [];
+
+const checkNames = (name) => {
+  for (let key in members) {
+    if (name === members[key]) {
+      return true;
+    }
+  }
+  return false;
+};
 
 names.addEventListener('input', () => {
-  let data = names.value;
-  members.forEach((element) => {
-    if (data === element) {
-      console.log('complete');
-    }
-  });
+  const data = names.value;
+  let check = checkNames(data);
+  console.log(check);
 });
