@@ -1,8 +1,17 @@
+// tag, id 불러오기
 const root = document.querySelector('#root');
 const form = document.querySelector('form');
 const names = document.querySelector('#name');
-// console.log(names);
 
+// containers 불러오기
+const nameCon = document.querySelector('#name-container');
+const passwordCon = document.querySelector('#password-container');
+const passwordCheckCon = document.querySelector('#possword-check-container');
+const emailCon = document.querySelector('#email-container');
+const phoneNumberCon = document.querySelector('#phone-number-container');
+// console.log(phoneNumberCon);
+
+// name Input 데이터베이스
 const members = [
   '구하림',
   '김보미',
@@ -26,8 +35,10 @@ const members = [
   '황재민',
 ];
 
+// boolean 값을 넣을 빈 배열
 const booleanArr = [];
 
+// name input의 데이터가 members 배열 값과 같은지 검사
 const checkNames = (name) => {
   for (let key in members) {
     if (name === members[key]) {
@@ -37,7 +48,8 @@ const checkNames = (name) => {
   return false;
 };
 
-names.addEventListener('change', () => {
+// root 안에 있는 input에 이벤트리스너 적용
+root.addEventListener('change', () => {
   const data = names.value;
   let check = checkNames(data);
   console.log(check);
