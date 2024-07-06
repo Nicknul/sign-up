@@ -42,7 +42,7 @@ const members = [
   '황재민',
 ];
 
-const number = /[0-9]/g;
+const number = /^\d+$/;
 
 // * input matching object
 const match = {
@@ -65,14 +65,14 @@ const booleanArr = [];
 
 // * root 안에 있는 input에 이벤트리스너 적용
 root.addEventListener('change', (event) => {
-  let indexZero = booleanArr[0];
+  // input data
   let name = match.name(names.value);
   let phone = match.phoneNumber(phoneNumber.value);
   console.log(phone);
 
   // ? name input
   if (name === true) {
-    if (indexZero !== true) {
+    if (booleanArr[0] !== true) {
       booleanArr.push(name);
     }
     nameBox.style.backgroundColor = '#4aff51';
@@ -81,32 +81,26 @@ root.addEventListener('change', (event) => {
   }
 
   // ? phone-number input
+  let phoneInput = event.target.value;
+
+  let ex = /\d{3}-\d{4}-\d{4}/;
+  if (ex.test(phoneInput) === true) {
+    // console.log('확인');
+  }
+
   if (phone === true) {
     // true 값 배열에 넣기
-    if (indexZero === true) {
+    if (booleanArr[0] === true) {
       booleanArr.push(phone);
     }
+    if (phoneInput.length > 3) {
+      phoneInput = phoneInput.slice(0, 3) + '-' + phoneInput.slice(3);
+    }
+    if (phoneInput.length > 8) {
+      phoneInput = phoneInput.slice(0, 8) + '-' + phoneInput.slice(8, 12);
+    }
+    event.target.value = phoneInput;
   }
+
   console.log(booleanArr);
 });
-
-// phoneNumber.addEventListener('input', (e) => {
-//   let input = e.target.value.replace(/\D/g, '');
-
-//   // if (phone === true) {
-//   //   if (booleanArr[0] === true || booleanArr[1] !== true) {
-//   //     booleanArr.push(phone);
-//   //   }
-//   if (input.length > 3) {
-//     input = input.slice(0, 3) + '-' + input.slice(3);
-//   }
-//   if (input.length > 8) {
-//     input = input.slice(0, 8) + '-' + input.slice(8, 12);
-//     phoneNumberBox.style.backgroundColor = '#4aff51';
-//   }
-//   e.target.value = input;
-//   // } else {
-//   //   phoneNumberBox.style.backgroundColor = '#ff4a4a';
-//   // }
-//   console.log(booleanArr);
-// });
