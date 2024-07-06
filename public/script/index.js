@@ -37,7 +37,7 @@ const checkNames = (name) => {
   return false;
 };
 
-names.addEventListener('input', () => {
+names.addEventListener('change', () => {
   const data = names.value;
   let check = checkNames(data);
   console.log(check);
