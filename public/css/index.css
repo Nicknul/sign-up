@@ -9,6 +9,27 @@
   margin: 5vh;
 }
 
+#name-container,
+#password-container,
+#possword-check-container,
+#email-container,
+#phone-number-container {
+  width: 470px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#name-container div,
+#password-container div,
+#possword-check-container div,
+#email-container div,
+#phone-number-container div {
+  width: 35.5px;
+  height: 35.5px;
+  border-radius: 10px;
+  background-color: #ff4a4a;
+}
+
 label {
   font-size: 11pt;
 }
