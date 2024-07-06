@@ -55,12 +55,19 @@ const match = {
     }
     return false;
   },
-  password: () => {},
-  phoneNumber: (inputData) => {
-    if (firstNumber.test(inputData) === true) {
+  password: (name) => {
+    for (let key in members) {
+      if (name === members[key]) {
+        return true;
+      }
+    }
+    return false;
+  },
+  phoneNumber: (input) => {
+    if (firstNumber.test(input) === true) {
       return true;
     } else {
-      return secondNumber.test(inputData);
+      return secondNumber.test(input);
     }
   },
 };
@@ -73,8 +80,9 @@ root.addEventListener('change', (event) => {
   let input = event.target.value;
   // console.log(input);
   let name = match.name(names.value);
+  let pass = match.password(password.value);
   let phone = match.phoneNumber(phoneNumber.value);
-  console.log(phone);
+  console.log(pass);
 
   // ? name input
   if (name === true) {
@@ -85,6 +93,8 @@ root.addEventListener('change', (event) => {
   } else {
     nameBox.style.backgroundColor = '#ff4a4a';
   }
+
+  // ? password input
 
   // ? phone-number input
   let thirdNumber = /[-]/g.test(input);
