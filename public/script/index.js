@@ -41,4 +41,6 @@ names.addEventListener('input', () => {
   const data = names.value;
   let check = checkNames(data);
   console.log(check);
+  booleanArr.push(check);
+  console.log(booleanArr);
 });
