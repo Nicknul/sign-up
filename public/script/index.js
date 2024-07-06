@@ -42,7 +42,8 @@ const members = [
   '황재민',
 ];
 
-const number = /^\d+$/;
+const firstNumber = /^\d+$/;
+const secondNumber = /\d{3}-\d{4}-\d{4}/;
 
 // * input matching object
 const match = {
@@ -54,9 +55,13 @@ const match = {
     }
     return false;
   },
-  password: (inputData) => {},
+  password: () => {},
   phoneNumber: (inputData) => {
-    return number.test(inputData);
+    if (firstNumber.test(inputData) === true) {
+      return true;
+    } else {
+      return secondNumber.test(inputData);
+    }
   },
 };
 
@@ -65,14 +70,15 @@ const booleanArr = [];
 
 // * root 안에 있는 input에 이벤트리스너 적용
 root.addEventListener('change', (event) => {
-  // input data
+  let input = event.target.value;
+  // console.log(input);
   let name = match.name(names.value);
   let phone = match.phoneNumber(phoneNumber.value);
   console.log(phone);
 
   // ? name input
   if (name === true) {
-    if (booleanArr[0] !== true) {
+    if (booleanArr[0] === false) {
       booleanArr.push(name);
     }
     nameBox.style.backgroundColor = '#4aff51';
@@ -81,26 +87,25 @@ root.addEventListener('change', (event) => {
   }
 
   // ? phone-number input
-  let phoneInput = event.target.value;
-
-  let ex = /\d{3}-\d{4}-\d{4}/;
-  if (ex.test(phoneInput) === true) {
-    // console.log('확인');
-  }
+  let thirdNumber = /[-]/g.test(input);
 
   if (phone === true) {
-    // true 값 배열에 넣기
     if (booleanArr[0] === true) {
       booleanArr.push(phone);
     }
-    if (phoneInput.length > 3) {
-      phoneInput = phoneInput.slice(0, 3) + '-' + phoneInput.slice(3);
+    if (thirdNumber === false) {
+      if (input.length > 3) {
+        input = input.slice(0, 3) + '-' + input.slice(3);
+      }
+      if (input.length > 8) {
+        input = input.slice(0, 8) + '-' + input.slice(8, 12);
+      }
     }
-    if (phoneInput.length > 8) {
-      phoneInput = phoneInput.slice(0, 8) + '-' + phoneInput.slice(8, 12);
-    }
-    event.target.value = phoneInput;
+    event.target.value = input;
+    phoneNumberBox.style.backgroundColor = '#4aff51';
+  } else {
+    phoneNumberBox.style.backgroundColor = '#ff4a4a';
   }
 
-  console.log(booleanArr);
+  // console.log(booleanArr);
 });
