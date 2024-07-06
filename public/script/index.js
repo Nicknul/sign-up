@@ -52,13 +52,25 @@ const checkNames = (name) => {
   return false;
 };
 
+// * input matching object
+const test = {
+  name: (name) => {
+    for (let key in members) {
+      if (name === members[key]) {
+        return true;
+      }
+    }
+    return false;
+  },
+};
+
 // * boolean 값을 넣을 빈 배열
 const booleanArr = [];
 
 // * root 안에 있는 input에 이벤트리스너 적용
 root.addEventListener('change', () => {
   const data = names.value;
-  let check = checkNames(data);
+  let check = test.name(data);
 
   if (check === true) {
     if (booleanArr[0] !== true) {
