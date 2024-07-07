@@ -95,6 +95,11 @@ root.addEventListener('change', (event) => {
   }
 
   // ? password input
+  if (pass === true) {
+    if (booleanArr[0] === true) {
+      booleanArr.push(pass);
+    }
+  }
 
   // ? phone-number input
   let thirdNumber = /[-]/g.test(input);
